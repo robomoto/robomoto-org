@@ -1,0 +1,73 @@
+
+body {
+    background-color: #221210;
+    color: lightgray;
+    box-sizing: border-box;
+}
+
+#mainNavbar {
+    background: rgba(34, 18, 16, .7);
+}
+
+#mainNavbar .navbar-brand {
+    color: white;
+    text-shadow: 2px 2px 6px #be835b;
+}
+
+#mainNavbar .nav-link:hover {
+    color:white;
+    text-shadow: 2px 2px 6px #be835b
+    ;
+}
+
+.section-header {
+    font-weight: 100;
+    margin-top: 30px;
+}
+
+.project {
+    margin-bottom: 100px;
+}
+
+.school {
+    margin-top: 50px;
+}
+
+.school-name {
+    margin-bottom: 20px;
+}
+
+.blockquote-footer {
+    font-weight: 200;
+    color: lightgray;
+    text-shadow: 0px 0px 10px #a19f1f;
+}
+
+#aureliusQuote {
+    background-color: #221210;
+}
+
+#aureliusBlock {
+    margin-top: 130px;
+    text-shadow: 0px 0px 10px #a19f1f;
+    padding-right: 10%
+}
+
+hr {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    border: 0;
+    border-top: 1px solid white;
+}
+
+li a {
+    color: white;
+}
+
+h2 a {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 200;
+    text-decoration: underline;
+
+}

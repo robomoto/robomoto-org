@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Google Font -->
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="app.css">
+
+    <title>robomoto.org</title>
+  </head>
+   
+  <body>
+    <nav id='mainNavbar' class='navbar navbar-dark navbar-expand-sm py-0 fixed-top'>
+      <a href="#" class="navbar-brand">ROBOMOTO</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label='Toggle navigation'>
+        <span class='navbar-toggler-icon'></span>
+      </button>
+      <div class="collapse navbar-collapse" id='navLinks'>
+        <ul class="navbar-nav">
+          <li class="navbar-item">
+            <a href="#home" class="nav-link">HOME</a>
+          </li>
+          <li class="navbar-item">
+            <a href="#about" class="nav-link">ABOUT</a>
+          </li>
+          <li class="navbar-item">
+            <a href="#projects" class="nav-link">PROJECTS</a>
+          </li>
+          <li class="navbar-item">
+            <a href="#education" class="nav-link">EDUCATION</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <section class="container-fluid"> 
+        <div class="row">
+            <div class="d-none d-md-inline">
+                <div id='aureliusQuote' class="card text-white">
+                    <a name='home'><img class="card-img" src="imgs/main.png" alt="Card image"></a>
+                    <div class="card-img-overlay">
+                      <blockquote id='aureliusBlock' class="card-text text-right">
+                          <p>The impediment to action advances action. What stands in the way becomes the way.</p>
+                          <footer class="blockquote-footer">
+                              <cite>Marcus Aurelius</cite>
+                          </footer>
+                        </blockquote>
+                      
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <a name='about'><h1 class="section-header">About</h1></a><hr>
+        <p>I'm Chris.  I graduated from Oregon State University in December of 2020 with a degree in Computer Science. 
+            I hold an MBA from Seattle University.  I have spent several years in Business Development and Marketing 
+            and am seeking work in Software Development.</p>        
+        <a name='projects'><h1 class="section-header">Projects</h1></a><hr>
+        <div class="row align-items-center project">
+            <div class="col-md-6 text-center">
+                <div class="row justify-content-center">
+                    <div class="col-sm-10 col-md-8">
+                        <h2><a href="https://github.com/AudNauseum/AudNauseum">AudNauseum</a></h2>
+                        <p>A multithreaded digital audio looper programmed in Python</p>
+                        <h3>Concepts:</h3>
+                        <ul class='list-inline'>
+                            <li class='list-inline-item'>Audio I/O Streams</li>
+                            <li class='list-inline-item'>Buffered file I/O</li>
+                            <li class='list-inline-item'>Parallel Processing</li>
+                            <li class='list-inline-item'>DSP</li>
+                            <li class='list-inline-item'>Finite State Machine Design Pattern</li>
+                        </ul>
+                        <h3>Tools & Tech</h3>
+                        <ul class='list-inline'>
+                            <li class='list-inline-item'>Python</li>
+                            <li class='list-inline-item'><a href="https://pypi.org/project/PyQt5/">PyQT5</a></li>
+                            <li class='list-inline-item'><a href="https://numpy.org/">Numpy library</a></li>
+                            <li class='list-inline-item'><a href="https://python-sounddevice.readthedocs.io/en/0.4.1/">sounddevice library</a></li>
+                            <li class='list-inline-item'><a href="https://docs.python.org/3/library/threading.html">threading library</a></li>
+                            <li class='list-inline-item'><a href="https://github.com/pytransitions/transitions">transitions library</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <img class='img-fluid' src="imgs/audNauseum.png" alt="">
+            </div>
+        </div>
+        <div class="row align-items-center project">
+            <div class="col-md-6 text-center order-2 order-md-1">
+                <img class='img-fluid' src="imgs/pomodoro.png" alt="">
+            </div>
+            <div class="col-md-6 text-center order-1 order-md-2">
+                <div class="row justify-content-center">
+                    <div class="col-sm-10 col-md-8">
+                        <h2><a href="https://github.com/robomoto/slatfatf_pomodoro_timer">Dolphin Pomodoro Timer</a></h2>
+                        <p>A Pomodoro timer written in Python with Kivy.  Features a threaded timer, basic user authentication, achievements, category and task-tracking and stats reporting. All data is saved locally to a SQLite database.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center project">
+            <div class="col-md-6 text-center">
+                <div class="row justify-content-center">
+                    <div class="col-sm-10 col-md-8">
+                        <h2><a href="https://github.com/robomoto/soul_exchange">The Soul Exchange</a></h2>
+                        <p>An auction platform for human souls</p>
+                        <h3>Tools & Tech</h3>
+                        <ul class='list-inline'>
+                            <li class='list-inline-item'>HTML</li>
+                            <li class='list-inline-item'>CSS</li>
+                            <li class='list-inline-item'>JavaScript</li>
+                            <li class='list-inline-item'>Node.js</li>
+                            <li class='list-inline-item'>Express</li>
+                            <li class='list-inline-item'>Express-session</li>
+                            <li class='list-inline-item'>EJS</li>
+                            <li class='list-inline-item'>MySQL</li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <img class='img-fluid' src="imgs/soul_exchange.png" alt="">
+            </div>
+        </div>
+        <a name='education'><h1 class="section-header">Education</h1></a><hr>
+        <div id='osu' class='school'>
+            <div class="row">
+                <div class="col-md-6 school-name">
+                    <h4>Oregon State University</h4>
+                    Corvallis OR
+                </div>
+                <div class="col-md-6 degree">
+                    Bachelor of Science in Computer Science&mdash;Dec. 2020
+                </div>
+            </div>
+            <div class="row">
+                <div class='col-md-6 classes'>
+                    <h5>Classes</h5>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">Analysis of Algorithms </li>
+                        <li class="list-inline-item">Computer Architecture & Assembly </li>
+                        <li class="list-inline-item">Cryptography </li> 
+                        <li class="list-inline-item">Data Structures </li>
+                        <li class="list-inline-item">Databases </li>
+                        <li class="list-inline-item">Discrete Structures </li>
+                        <li class="list-inline-item">Networks </li>
+                        <li class="list-inline-item">Operating Systems </li> 
+                        <li class="list-inline-item">Parallel Processing </li>
+                        <li class="list-inline-item">Software Development Lifecycle </li>
+                        <li class="list-inline-item">Testing </li>
+                        <li class="list-inline-item">Web Development</li>
+                    </ul>
+                </div>
+                <div class='col-md-6 skills'>
+                    <h5>Languages & Tools</h5>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">Bash </li>
+                        <li class="list-inline-item">x86 Assembly </li>
+                        <li class="list-inline-item">C/C++ </li>
+                        <li class="list-inline-item">CUDA </li>
+                        <li class="list-inline-item">Java </li>
+                        <li class="list-inline-item">JavaScript </li>
+                        <li class="list-inline-item">Kivy </li>
+                        <li class="list-inline-item">MongoDB </li>
+                        <li class="list-inline-item">Node.js </li>
+                        <li class="list-inline-item">OpenCL </li>
+                        <li class="list-inline-item">OpenMP </li>
+                        <li class="list-inline-item">Python </li>
+                        <li class="list-inline-item">SQL</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id='su' class='school'>
+            <div class="row">
+                <div class="col-md-6 school-name">
+                    <h4>Seattle University</h4>
+                    Seattle WA
+                </div>
+                <div class="col-md-6 degree">
+                    Master of Business Administration&mdash;June 2012
+                </div>
+            </div>
+            <div class='classes'>
+                <h5>Classes</h5>
+                <ul class="list-inline">
+                    <li class="list-inline-item">Applied Econometrics </li>
+                    <li class="list-inline-item">Business Ethics & Social Responsibilty </li>
+                    <li class="list-inline-item">Business Statistics </li>
+                    <li class="list-inline-item">Corporate Financial Management </li>
+                    <li class="list-inline-item">Data Mining for Business Intelligence </li>
+                    <li class="list-inline-item">Domestic and Global Economies </li>
+                    <li class="list-inline-item">Economics of Strategy </li>
+                    <li class="list-inline-item">Financial Accounting </li>
+                    <li class="list-inline-item">International Business Consulting </li>
+                    <li class="list-inline-item">International Law & Business </li>
+                    <li class="list-inline-item">International Policy/Strategy</li>
+                    <li class="list-inline-item">Leadership Skills & Team Development </li>
+                    <li class="list-inline-item">Legal and Regulatory Environment </li>
+                    <li class="list-inline-item">Legal Issues of New Ventures </li>
+                    <li class="list-inline-item">Management of Information Technology </li>
+                    <li class="list-inline-item">Management of People </li>
+                    <li class="list-inline-item">Managerial Accounting </li>
+                    <li class="list-inline-item">Managerial Economics </li>
+                    <li class="list-inline-item">Managerial Finance </li>
+                    <li class="list-inline-item">Marketing Management </li>
+                    <li class="list-inline-item">Marketing Principles </li>
+                    <li class="list-inline-item">Marketing Research </li>
+                    <li class="list-inline-item">Negotiation Skills </li>
+                    <li class="list-inline-item">Operations Management </li>
+                </ul>
+            </div>
+            
+        </div>
+        <div id='wwu' class='school'>
+            <div class="row">
+                <div class="col-md-6 school-name">
+                    <h4>Western Washington University</h4>
+                    Bellingham WA 
+                </div>
+                <div class="col-md-6 degree">
+                    Bachelor of Arts in Music&mdash;June 2006
+                </div>
+            </div>
+            <div class='classes'>
+                <ul class="list-inline">
+                    <li class="list-inline-item">Analytical Skills in Music</li>
+                    <li class="list-inline-item">Audio Engineering</li>
+                    <li class="list-inline-item">Conducting</li>
+                    <li class="list-inline-item">Digital Mixing</li>
+                    <li class="list-inline-item">French</li>
+                    <li class="list-inline-item">Modal Counterpoint</li>
+                    <li class="list-inline-item">Music History</li>
+                    <li class="list-inline-item">Tonal Counterpoint</li>
+                    <li class="list-inline-item">Vocal Diction</li>
+                    <li class="list-inline-item">Voice</li>
+                </ul>
+            </div>
+        </div>
+        </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+      $(function () {
+        $(document).scroll(function(){
+          var $nav = $("#mainNavbar");
+          $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+        });
+      });
+    </script>
+  </body>
+</html>
