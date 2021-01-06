@@ -74,5 +74,6 @@ h2 a {
 
 h3 a {
     color: white;
+    font-weight: 200;
     text-decoration: underline;
 }
