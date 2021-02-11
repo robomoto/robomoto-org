@@ -1,0 +1,16 @@
+<% layout('layouts/boilerplate') %> 
+
+    <% for(let project of projects){ %>
+    <article class="project">
+        <div class="projectContent">
+            <h3 class="title"><a href="/projects/<%= project._id %>"><%= project.name %></a></h3>
+            <p><%= project.shortDescription %></p>
+        </div>
+        <div class="projectImage">
+            <% if(project.imgs.length > 0){ %>
+                <img class="thumb" src="<%= project.imgs %> " alt="">
+            <% } %>
+        </div>
+    </article>
+    <% } %> 
+
