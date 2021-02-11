@@ -1,0 +1,35 @@
+<% layout('layouts/boilerplate') %> 
+    <form action="/projects/<%=project._id%>?_method=PUT" method="POST">
+        <section>
+            <label for="name"><%= project.name %></label><br />
+            <input type="text" name="project[name]" id="name" placeholder="Project Name" value="<%= project.name %>">
+        </section>
+        
+        <section>
+            <label for="shortDescription">Short Description</label><br />
+            <textarea name="project[shortDescription]" id="shortDescription" cols="30" rows="5"><%= project.shortDescription %></textarea>
+        </section>
+
+        <section>
+            <label for="description">Description</label><br>
+            <textarea name="project[description]" id="description" cols="30" rows="10"><%= project.description %> </textarea>
+        </section>
+        
+        <section>
+            <label for="gitHubLink">GitHub Link</label><br />
+            <input type="url" name="project[gitHubLink]" id="gitHubLink" placeholder="gitHub Link" value="<%= project.gitHubLink %>">
+        </section>
+        
+        <section>
+            <label for="liveLink">Live Link</label><br />
+            <input type="text" name="project[liveLink]" id="liveLink" placeholder="Live Link" value="<%= project.liveLink%>">
+        </section>
+
+        <section>
+            <label for="newTag">Add Tags</label><br />
+            <textarea name="project[tags]" id="tags" cols="30" rows="10"><% if(project.tags.length > 0) { %><%= project.tags[0].trim() %><% } %><% for(let i = 1; i < project.tags.length; i++){ %>, <%= project.tags[i].trim() %><% } %></textarea>                
+        </section>
+        
+        <button>Submit</button>
+    </form>
+    <a href="/projects">Cancel</a>
