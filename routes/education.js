@@ -6,14 +6,13 @@ let wrapAsync = require('../utils/wrapAsync');
 //index route
 router.get('/', wrapAsync(async (req, res) => {
     const degrees = await Degree.find({});
-    console.log(degrees);
     res.render("degrees/index", {degrees});
 }))
 
-//new route
-router.get('/new', (req, res) => {
-    res.render('new');
-})
+// //new route
+// router.get('/new', (req, res) => {
+//     res.render('new');
+// })
 
 // //post route
 // router.post('/', wrapAsync(async (req, res) => {

@@ -24,9 +24,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
-app.use('/degrees', degreeRoutes);
+app.use('/education', degreeRoutes);
 app.use('/projects', projectRoutes);
 
+app.get('/', (req, res) => {
+    res.render('about');
+})
 
 app.use((err, req, res, next) => {
     console.log(err.name);
