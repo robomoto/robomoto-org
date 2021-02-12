@@ -7,10 +7,6 @@
         <ul class="links">
             <%- (project.gitHubLink !== null && project.gitHubLink !== '' ? `<li><a class="sourceCode" href="${project.gitHubLink}">Source Code</a></li>` : ``) %>
             <%- (project.liveLink !== null && project.liveLink !== '' ? `<li><a class="liveLink" href="${project.liveLink}">Live Demo</a></li>` : ``) %>
-            <li><a class="edit" href="/projects/<%= project._id %>/edit">Edit</a></li>
-            <li><form action="/projects/<%= project._id%>?_method=DELETE" method="POST">
-                <button>Delete</button>
-            </form></li>
         </ul>
     </article>
     

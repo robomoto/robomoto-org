@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const Project = require('./models/project');
 const ejsMate = require('ejs-mate');
-const project = require('./models/project');
 const projectRoutes = require('./routes/projects');
 const degreeRoutes = require('./routes/education');
 const AppError = require('./AppError');
@@ -43,6 +42,6 @@ app.use((err, req, res, next) => {
 })
 
 
-app.listen(3001, () => {
-    console.log("App listening on port 3001");
+app.listen(3000, () => {
+    console.log("App listening on port 3000");
 })

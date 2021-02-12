@@ -1,15 +1,21 @@
 <% layout('layouts/boilerplate') %> 
 
 <h1>Education</h1>
+<hr>
 
     <% for(let degree of degrees){ %>
     <article class="degree">
         <div class="degreeContent">
-            <h3 class="title"><%= degree.degree %></h3>
-            <div><%= degree.school%></div>
-            <div><%= degree.gradYear%></div>
+            <div class="degreeDetail">
+                <div class="groupDegreeSchool">
+                    <div class="degree"><h3 class="title"><%= degree.degree %></h3></div>
+                    <div class="school"><%= degree.school%></div>
+                </div>
+                <div class="gradYear"><%= degree.gradYear%></div>
+            </div>
+            
             <% if(degree.classes.length > 0){ %>
-                <ul>
+                <ul class="courses">
                 <% for(each of degree.classes){ %> 
                     <li><%= each %></li>
                 <% } %>

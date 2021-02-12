@@ -5,7 +5,8 @@ let wrapAsync = require('../utils/wrapAsync');
 
 //index route
 router.get('/', wrapAsync(async (req, res) => {
-    const degrees = await Degree.find({});
+    const sort = {gradYear: -1};
+    const degrees = await Degree.find({}).sort(sort);
     res.render("degrees/index", {degrees});
 }))
 
