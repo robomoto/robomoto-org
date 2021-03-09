@@ -11,6 +11,9 @@
                     <div class="degree"><h3 class="title"><%= degree.degree %></h3></div>
                     <div class="school"><%= degree.school%></div>
                 </div>
+                <% if(degree.program) { %> 
+                    <div class="program"><%= degree.program %> </div>
+                <% } %>
                 <div class="gradYear"><%= degree.gradYear%></div>
             </div>
             

@@ -1,31 +1,47 @@
-<% layout('layouts/boilerplate') %> 
-    <article class="projectLinks">
-        <div class="projectName">
-            <h3 class="title"><%= project.name%></h3>
-            <hr>
+<% layout('layouts/boilerplate') %>
+<div class="row">
+    <div class="col-8 offset-2">
+        <div class="container">
+            <div>
+                <h5><%= project.name%></h5>
+                <p> <%= project.shortDescription%></p>
+            </div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <% if(project.imgs.length > 0){ %> 
+                        <img class="card-img-top" src="/imgs/<%- project.imgs[0] %> " alt="">
+                    <% } %> 
+                </div>
+                <div class="col-lg-5">
+                    <ul class="links text-end list-unstyled">
+                        <%- (project.gitHubLink !== null && project.gitHubLink !== '' ? `<li><a class="sourceCode" href="${project.gitHubLink}">Source Code</a></li>` : ``) %>
+                        <%- (project.liveLink !== null && project.liveLink !== '' ? `<li><a class="liveLink" href="${project.liveLink}">Live Demo</a></li>` : ``) %>
+                        <% if(currentUser && project.author.equals(currentUser._id)) { %>
+                        <li><a class="edit" href="/projects/<%= project._id %>/edit">Edit</a></li>
+                        <li><form action="/projects/<%= project._id%>?_method=DELETE" method="POST">
+                            <button>Delete</button>
+                        </form></li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+            
         </div>
-        <ul class="links">
-            <%- (project.gitHubLink !== null && project.gitHubLink !== '' ? `<li><a class="sourceCode" href="${project.gitHubLink}">Source Code</a></li>` : ``) %>
-            <%- (project.liveLink !== null && project.liveLink !== '' ? `<li><a class="liveLink" href="${project.liveLink}">Live Demo</a></li>` : ``) %>
-        </ul>
-    </article>
-    
-    <div class="shortDescription">
-        <%= project.shortDescription%>
-    </div>
-    <hr>
-    <div class="description">
-        <%- project.description%>
-    </div>
-    
-    
-    
+        
+        <hr>
+        <div class="description">
+            <%- project.description%>
+        </div>
         <% if(project.tags.length > 0 && project.tags[0].length > 0) { %>
-            <h4 class="tagsTitle">Project Tags</h4>
-            <div class="tags"> 
+            <h4 class="tagsTitle">Tags</h4>
+            <div class="d-flex flex-row flex-wrap"> 
                 <% for(tag of project.tags){%>
-                    <div class="tag"><%= tag %></div>
+                    <div class="m-2"><%= tag %></div>
                 <% } %>
             </div>
         <% } %>
+        </div>
+</div>
+    
+    
     

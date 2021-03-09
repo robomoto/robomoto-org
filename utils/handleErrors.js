@@ -1,4 +1,4 @@
-const AppError = require('../AppError');
+const AppError = require('AppError');
 
 const handleCastError = err => {
     console.dir(err);

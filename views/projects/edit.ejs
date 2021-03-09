@@ -1,0 +1,54 @@
+<% layout('layouts/boilerplate') %> 
+<div class="row">
+    <h1 class="text-center">Edit Project</h1>
+    <div class="col-6 offset-3">
+        <form action="/projects/<%=project._id%>?_method=PUT" method="POST" class="needs-validation" novalidate>
+            <div class="projectLinks">
+                <section class="formName mb-3">
+                    <label class="form-label" for="name">Project Name</label><br />
+                    <input class="form-control" type="text" name="project[name]" id="name" value="<%= project.name %>" required>
+                </section>
+        
+                <section class="projectGitHubLink mb-3">
+                    <label class="form-label" for="gitHubLink">GitHub Link</label><br />
+                    <input class="form-control" type="url" name="project[gitHubLink]" id="gitHubLink" value="<%= project.gitHubLink %>">
+                </section>
+                
+                <section class="projectLiveLink mb-3">
+                    <label class="form-label" for="liveLink">Live Link</label><br />
+                    <input class="form-control" type="text" name="project[liveLink]" id="liveLink" value="<%= project.liveLink%>">
+                </section>
+    
+            </div>
+            
+            <section class="formShortDescription mb-3">
+                <label class="form-label" for="shortDescription">Short Description</label><br />
+                <textarea class="form-control" name="project[shortDescription]" id="shortDescription" cols="30" rows="5" required><%= project.shortDescription %></textarea>
+            </section>
+    
+            <section class="formDescription mb-3">
+                <label class="form-label" for="description">Description</label><br>
+                <textarea class="form-control" name="project[description]" id="description" cols="30" rows="10" required><%= project.description %></textarea>
+            </section>
+            
+            <section class="formTags mb-3">
+                <label class="form-label" for="newTag">Add Tags</label><br />
+                <input class="form-control" type="text" name="project[tags]" id="tags" value="<% if(project.tags.length > 0) { %><%= project.tags[0].trim() %><% } %><% for(let i = 1; i < project.tags.length; i++){ %>, <%= project.tags[i].trim() %><% } %>">
+            </section>
+    
+            <section class="mb-3">
+                <label class="form-label" for="image">Image Filename</label>
+                <input class="form-control" type="text" name="project[image]" id="image" placeholder="Main Image for project"
+                    <% if( project.imgs.length > 0) { %> 
+                        value="<%- project.imgs[0] %>"
+                    <% } %>
+                >
+            </section>
+            
+            <section class="submit mb-3">
+                <button class="btn btn-info">Update Project</button> 
+            </section>
+            <a href="/projects/<%=project._id%>" class="btnLink">Back to Project</a>    
+        </form>
+    </div>
+</div>

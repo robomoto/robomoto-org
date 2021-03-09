@@ -1,0 +1,52 @@
+<% layout('layouts/boilerplate') %> 
+        <div class="row">
+            <h1 class="text-center">New Project</h1>
+            <div class="col-6 offset-3">
+                <form action="/projects" method="POST" class="needs-validation" novalidate>
+                    <div class="projectLinks">
+                        <section class="formName mb-3">
+                            <label class="form-label" for="name">Project Name</label><br />
+                            <input class="form-control" type="text" name="project[name]" id="name" placeholder="Project Name" required>
+                        </section>
+                
+                        <section class="projectGitHubLink mb-3">
+                            <label class="form-label" for="gitHubLink">GitHub Link</label><br />
+                            <input class="form-control" type="url" name="project[gitHubLink]" id="gitHubLink" placeholder="gitHub Link">
+                        </section>
+                        
+                        <section class="projectLiveLink mb-3">
+                            <label class="form-label" for="liveLink">Live Link</label><br />
+                            <input class="form-control" type="text" name="project[liveLink]" id="liveLink" placeholder="Live Link">
+                        </section>
+            
+                    </div>
+                    
+                    <section class="formShortDescription mb-3">
+                        <label class="form-label" for="shortDescription">Short Description</label><br />
+                        <textarea class="form-control" name="project[shortDescription]" id="shortDescription" cols="30" rows="5" required></textarea>
+                    </section>
+            
+                    <section class="formDescription mb-3">
+                        <label class="form-label" for="description">Description</label><br>
+                        <textarea class="form-control" name="project[description]" id="description" cols="30" rows="10" required></textarea>
+                    </section>
+                    
+                    <section class="formTags mb-3">
+                        <label class="form-label" for="newTag">Add Tags</label><br />
+                        <input class="form-control" type="text" name="project[tags]" id="tags" placeholder="Comma separated list">
+                    </section>
+            
+                    <section class="mb-3">
+                        <label class="form-label" for="image">Image Filename</label>
+                        <input class="form-control" type="text" name="project[image]" id="image" placeholder="Main Image for project">
+                    </section>
+                    
+                    <section class="submit mb-3">
+                        <button class="btn btn-success">Submit</button> 
+                    </section>
+                    <a href="/projects" class="btnLink">Cancel</a>    
+                </form>
+            </div>
+        </div>
+        
+    

@@ -5,17 +5,24 @@ const degreeSchema = new mongoose.Schema({
         type: String,
         enum: ['Associate of Arts and Sciences', 'Bachelor of Arts', 'Bachelor of Science', 'Master of Business Administration']
     },
+    program: {
+        type: String
+    },
     school: {
         type: String,
-        enum: ['Wenatchee Valley College', 'Western Washington University', 'Seattle University - Albers School of Business and Economics', 'Oregon State University']
+        enum: ['Wenatchee Valley College', 'Western Washington University', 'Seattle University', 'Oregon State University']
     },
     classes: {
         type: [String]
     },
     gradYear: {
         type: Number
+    },
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
-});
+}, { strict: false});
 
 const Degree = mongoose.model('Degree', degreeSchema);
 

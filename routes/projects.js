@@ -1,19 +1,20 @@
-let express = require('express');
-let router = express.Router();
-let Project = require('../models/project');
-let wrapAsync = require('../utils/wrapAsync');
+const express = require('express');
+const router = express.Router();
+const projects = require('../controllers/projects');
+const wrapAsync = require('../utils/wrapAsync');
+const { isLoggedIn, isAuthor, validateProject } = require('../middleware')
 
-//index route
-router.get('/', wrapAsync(async (req, res) => {
-    const projects = await Project.find({});
-    res.render("projects/index", {projects});
-}))
+router.route('/')
+    .get(wrapAsync(projects.index))
+    .post(isLoggedIn, validateProject, wrapAsync(projects.createProject))
 
-//show route
-router.get('/:id', wrapAsync(async (req, res) => {
-    const { id } = req.params;
-    const project = await Project.findById(id);    
-    res.render('projects/show', { project });
-}))
+router.get('/new', isLoggedIn, projects.renderNewForm)
+
+router.route('/:id')
+    .get(wrapAsync(projects.showProject))
+    .put(isLoggedIn, isAuthor, validateProject, wrapAsync(projects.updateProject))
+    .delete(isLoggedIn, isAuthor, wrapAsync(projects.deleteProject))
+
+router.get('/:id/edit', isLoggedIn, isAuthor, wrapAsync(projects.renderEditForm))
 
 module.exports = router;
