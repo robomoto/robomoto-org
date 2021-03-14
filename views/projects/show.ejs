@@ -8,9 +8,32 @@
             </div>
             <div class="row">
                 <div class="col-lg-7">
-                    <% if(project.imgs.length > 0){ %> 
-                        <img class="card-img-top" src="/imgs/<%- project.imgs[0] %> " alt="">
-                    <% } %> 
+                    <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <% if (project.imgs.length > 1 && project.imgs.length < 7){ %>
+                            <div class="carousel-indicators">
+                                <% project.imgs.forEach((img, i) => { %> 
+                                    <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="<%= i %>" class="<%= i === 0 ? 'active' : ''  %>" aria-current="<%= i === 0 ? 'true': 'false' %>" aria-label="Image <%= i %>"></button>
+                                <% }) %>
+                            </div> 
+                        <% } %>  
+                        <div class="carousel-inner">
+                            <% project.imgs.forEach((img, i) => { %> 
+                          <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+                            <img src="<%- img.url %>" class="d-block w-100" alt="">
+                          </div>
+                          <% }) %>
+                        </div>
+                        <% if (project.imgs.length > 1) { %> 
+                        <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel"  data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel"  data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                        <% } %> 
+                    </div>
                 </div>
                 <div class="col-lg-5">
                     <ul class="links text-end list-unstyled">

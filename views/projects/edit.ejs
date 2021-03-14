@@ -2,7 +2,7 @@
 <div class="row">
     <h1 class="text-center">Edit Project</h1>
     <div class="col-6 offset-3">
-        <form action="/projects/<%=project._id%>?_method=PUT" method="POST" class="needs-validation" novalidate>
+        <form action="/projects/<%=project._id%>?_method=PUT" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
             <div class="projectLinks">
                 <section class="formName mb-3">
                     <label class="form-label" for="name">Project Name</label><br />
@@ -37,14 +37,19 @@
             </section>
     
             <section class="mb-3">
-                <label class="form-label" for="image">Image Filename</label>
-                <input class="form-control" type="text" name="project[image]" id="image" placeholder="Main Image for project"
-                    <% if( project.imgs.length > 0) { %> 
-                        value="<%- project.imgs[0] %>"
-                    <% } %>
-                >
+                <label for="image" class="form-label">Add Images</label>
+                <input class="form-control" type="file" id="image" name="image" multiple>
             </section>
             
+            <section class="mb-3">
+                <% project.imgs.forEach(function(img, i) { %> 
+                    <img src="<%= img.thumbnail %>" class="img-thumbnail" alt="">
+                    <div class="form-check-inline">
+                        <input type="checkbox" name="deleteImages[]" id="image-<%= i %>" value="<%= img.filename %>">
+                    </div>
+                    <label for="image-<%= i %>">Delete</label>
+                <% }) %>
+
             <section class="submit mb-3">
                 <button class="btn btn-info">Update Project</button> 
             </section>

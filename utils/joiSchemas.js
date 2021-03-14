@@ -19,7 +19,8 @@ module.exports.projectSchema = Joi.object({
         liveLink: Joi.string().empty(''),
         tags: Joi.string().empty(''),
         image: Joi.string().empty(''),
-    }).required()
+    }).required(),
+    deleteImages: Joi.array()
 }) 
 
 module.exports.userSchema = Joi.object({

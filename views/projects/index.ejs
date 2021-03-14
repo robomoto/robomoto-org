@@ -5,7 +5,9 @@
         <div class="row">
             <h5 class="card-title"><a href="/projects/<%= project._id %>"><%= project.name %></a></h5>
             <div class="col-md-2">
-                    <img class="thumb img-fluid" src="/imgs/<%- project.imgs[0] %> " alt="">
+                    <% if(project.imgs.length && project.imgs[0].url){ %>
+                    <img class="thumb img-fluid" src=" <%- project.imgs[0].url %> " alt="">
+                    <% } %>
             </div>  
             <div class="col-md-10 projectContent">
                 <p><%= project.shortDescription %></p>

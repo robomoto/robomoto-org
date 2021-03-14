@@ -2,7 +2,7 @@
         <div class="row">
             <h1 class="text-center">New Project</h1>
             <div class="col-6 offset-3">
-                <form action="/projects" method="POST" class="needs-validation" novalidate>
+                <form action="/projects" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
                     <div class="projectLinks">
                         <section class="formName mb-3">
                             <label class="form-label" for="name">Project Name</label><br />
@@ -37,8 +37,8 @@
                     </section>
             
                     <section class="mb-3">
-                        <label class="form-label" for="image">Image Filename</label>
-                        <input class="form-control" type="text" name="project[image]" id="image" placeholder="Main Image for project">
+                            <label for="image" class="form-label">Add Images</label>
+                            <input class="form-control" type="file" id="image" name="image" multiple>
                     </section>
                     
                     <section class="submit mb-3">

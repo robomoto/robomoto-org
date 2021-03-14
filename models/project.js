@@ -1,6 +1,15 @@
 const mongoose = require('mongoose');
 
-const projectSchema = new mongoose.Schema({
+const ImageSchema = new mongoose.Schema({
+    url: String,
+    filename: String
+})
+
+ImageSchema.virtual('thumbnail').get(function() {
+    return this.url.replace('/upload', '/upload/w_220')
+})
+
+const ProjectSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -20,9 +29,7 @@ const projectSchema = new mongoose.Schema({
     tags: {
         type: [String]
     },
-    imgs: {
-        type: [String]
-    },
+    imgs: [ImageSchema],
     lastUpdated: {
         type: Date,
         default: Date.now
@@ -37,6 +44,6 @@ const projectSchema = new mongoose.Schema({
     }
 }, {strict: false})
 
-const Project = mongoose.model('Project', projectSchema);
+const Project = mongoose.model('Project', ProjectSchema);
 
 module.exports = Project;
