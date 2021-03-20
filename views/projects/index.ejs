@@ -2,14 +2,16 @@
 
     <% for(let project of projects){ %>
     <article class="project card mb-3">
-        <div class="row">
-            <h5 class="card-title"><a href="/projects/<%= project._id %>"><%= project.name %></a></h5>
-            <div class="col-md-2">
-                    <% if(project.imgs.length && project.imgs[0].url){ %>
-                    <img class="thumb img-fluid" src=" <%- project.imgs[0].url %> " alt="">
-                    <% } %>
+        <div class="row d-flex align-items-center m-2">
+            <h5 class=""><a href="/projects/<%= project._id %>"><%= project.name %></a></h5>
+            <% if(project.imgs.length && project.imgs[0].url){ %>
+            <div class="col-md-3 align-self-start">
+                    <img class="thumb img-fluid" src=" <%- project.imgs[0].url %> " alt="">        
             </div>  
-            <div class="col-md-10 projectContent">
+            <div class="col-md-8 projectContent">
+            <% } else { %>
+            <div class="col-md-11 projectContent">
+            <% } %>
                 <p><%= project.shortDescription %></p>
             </div>
         </div>

@@ -1,5 +1,6 @@
 
 const Project = require('./models/project');
+const Degree = require('./models/degree');
 const { projectSchema, degreeSchema } = require('./utils/joiSchemas');
 const AppError = require('./utils/AppError');
 
@@ -22,6 +23,16 @@ module.exports.isAuthor = async(req, res, next) => {
     next();
 }
 
+module.exports.isDegreeAuthor = async(req, res, next) => {
+    const { id } = req.params;
+    const degree = await Degree.findById(id);
+    if(!degree.author.equals(req.user._id)) {
+        req.flash('error', 'You do not have permission to do that.');
+        return res.redirect(`/education/${id}`);
+    } 
+    next();
+}
+
 //validate project
 module.exports.validateProject = (req, res, next) => { 
     const { error } = projectSchema.validate(req.body);
@@ -34,7 +45,7 @@ module.exports.validateProject = (req, res, next) => {
 }
 
 //validate degree
-const validateDegree = (req, res, next) => {    
+module.exports.validateDegree = (req, res, next) => {    
     const { error } = degreeSchema.validate(req.body);
     if(error) {
         const msg = error.details.map(el => el.message).join(',');

@@ -1,0 +1,42 @@
+<% layout('layouts/boilerplate') %> 
+        <div class="row">
+            <h1 class="text-center">New Degree</h1>
+            <div class="col-6 offset-3">
+                <form action="/education" method="POST" class="needs-validation" novalidate>
+                    <div class="schoolLinks">
+                        <section class="degree mb-3">
+                            <label class="form-label" for="degree">Degree Name</label><br />
+                            <input class="form-control" type="text" name="degree[degree]" id="degree" placeholder="Degree" required>
+                        </section>
+                        
+                        <section class="program mb-3">
+                            <label class="form-label" for="program">Program</label><br />
+                            <input class="form-control" type="text" name="degree[program]" id="program" placeholder="Program" required>
+                        </section>
+                
+                        <section class="school mb-3">
+                            <label class="form-label" for="school">School</label><br />
+                            <input class="form-control" type="text" name="degree[school]" id="school" placeholder="school">
+                        </section>
+                        
+                        <section class="gradYear mb-3">
+                            <label class="form-label" for="gradYear">Grad Year</label><br />
+                            <input class="form-control" type="number" name="degree[gradYear]" id="gradYear" placeholder="Graduation Year">
+                        </section>
+            
+                    </div>
+                    
+                    <section class="classes mb-3">
+                        <label class="form-label" for="newClasses">Add Classes</label><br />
+                        <input class="form-control" type="text" name="degree[classes]" id="classes" placeholder="Comma separated list">
+                    </section>
+                    
+                    <section class="submit mb-3">
+                        <button class="btn btn-success">Submit</button> 
+                    </section>
+                    <a href="/education" class="btnLink">Cancel</a>    
+                </form>
+            </div>
+        </div>
+        
+    

@@ -12,7 +12,9 @@ module.exports.renderNewForm = (req, res) => {
 
 module.exports.createProject = async (req, res) => {
     console.log(req.body);
-    req.body.project.tags = req.body.project.tags.replace(/\s/g, '').split(",");
+    req.body.project.tags = req.body.project.tags.split(",").map(function(item){ 
+        return item.trim()
+    });
     req.body.project.author = res.locals.currentUser;
     const newProject = new Project(req.body.project);  //not sanitizing or error checking
     newProject.imgs = req.files.map(f => ({url: f.path, filename: f.filename}));
@@ -46,7 +48,7 @@ module.exports.updateProject = async (req, res) => {
     const { id } = req.params;
     console.log(req.body)
     const project = await Project.findById(id);
-    req.body.project.tags = req.body.project.tags.replace(/\s/g, '').split(",");
+    req.body.project.tags = req.body.project.tags.split(",").map(function(item){ return item.trim()});
     req.body.project.author = res.locals.currentUser;
     console.log(req.body.project);
     const p = await Project.findByIdAndUpdate(id, req.body.project, {runValidators: true, new: true});

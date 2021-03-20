@@ -14,13 +14,13 @@ const helmet = require('helmet');
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/roboPortfolio';
 
 //models
-const Project = require('./models/project');
+// const Project = require('./models/project');
 const User = require('./models/user');
 
 //routes files
 const projectRoutes = require('./routes/projects');
-const degreeRoutes = require('./routes/education');
-const authRoutes = require('./routes/auth');
+const degreeRoutes = require('./routes/degrees');
+const authRoutes = require('./routes/user');
 
 const session = require('express-session');
 const flash = require('connect-flash');
@@ -43,9 +43,9 @@ mongoose.connect(dbUrl, {
     })
 
 //app settings
-    app.engine('ejs', ejsMate);
-    app.set('view engine', 'ejs');
-    app.set('views', path.join(__dirname, 'views'));
+app.engine('ejs', ejsMate);
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 const store = new MongoStore({
     url: dbUrl,
@@ -94,6 +94,7 @@ const fontSrcUrls = [
     "https://cdnjs.cloudflare.com/",
     "https://fonts.gstatic.com/",
 ];
+
 app.use(
     helmet.contentSecurityPolicy({
         directives: {
@@ -160,5 +161,5 @@ const port = process.env.PORT || 3000;
 
 //server listening
 app.listen(port, () => {
-    console.log(`App listening on port ${PORT}`);
+    console.log(`App listening on port ${port}`);
 })

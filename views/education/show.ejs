@@ -1,0 +1,45 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+    <div class="col-8 offset-2">
+        <div class="container">
+            <div>
+                <h5><%= degree.degree%></h5>
+            </div>
+            <div class="row">
+                <div class="col-lg-5">
+                    <ul class="links text-end list-unstyled">
+                        <% if(currentUser && degree.author.equals(currentUser._id)) { %>
+                        <li><a class="edit" href="/education/<%= degree._id %>/edit">Edit</a></li>
+                        <li><form action="/education/<%= degree._id%>?_method=DELETE" method="POST">
+                            <button>Delete</button>
+                        </form></li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        
+        <hr>
+        <div class="program">
+            <%- degree.program%>
+        </div>
+        <div class="school">
+            <%- degree.school%>
+        </div>
+        <div class="gradYear">
+            <%- degree.gradYear%>
+        </div>
+        <% if(degree.classes.length > 0 && degree.classes[0].length > 0) { %>
+            <h4 class="classTitle">Classes</h4>
+            <div class="d-flex flex-row flex-wrap"> 
+                <% for(course of degree.classes){%>
+                    <div class="m-2"><%= course %></div>
+                <% } %>
+            </div>
+        <% } %>
+        </div>
+</div>
+    
+    
+    

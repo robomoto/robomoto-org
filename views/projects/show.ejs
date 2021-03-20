@@ -1,11 +1,24 @@
 <% layout('layouts/boilerplate') %>
 <div class="row">
+    <div class="col-8 offset-2 d-inline-flex">
+        <div class="col-md-8">
+            <h5><%= project.name%></h5>
+            <p> <%= project.shortDescription%></p>
+        </div>
+        <div class="col-md-4">
+            <ul class="links text-end list-unstyled">
+                <%- (project.gitHubLink !== null && project.gitHubLink !== '' ? `<li><a class="sourceCode" href="${project.gitHubLink}">Source Code</a></li>` : ``) %>
+                <%- (project.liveLink !== null && project.liveLink !== '' ? `<li><a class="liveLink" href="${project.liveLink}">Live Demo</a></li>` : ``) %>
+                <% if(currentUser && project.author.equals(currentUser._id)) { %>
+                <li><a class="edit" href="/projects/<%= project._id %>/edit">Edit</a></li>
+                <li><form action="/projects/<%= project._id%>?_method=DELETE" method="POST">
+                    <button>Delete</button>
+                </form></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
     <div class="col-8 offset-2">
-        <div class="container">
-            <div>
-                <h5><%= project.name%></h5>
-                <p> <%= project.shortDescription%></p>
-            </div>
             <div class="row">
                 <div class="col-lg-7">
                     <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -35,20 +48,6 @@
                         <% } %> 
                     </div>
                 </div>
-                <div class="col-lg-5">
-                    <ul class="links text-end list-unstyled">
-                        <%- (project.gitHubLink !== null && project.gitHubLink !== '' ? `<li><a class="sourceCode" href="${project.gitHubLink}">Source Code</a></li>` : ``) %>
-                        <%- (project.liveLink !== null && project.liveLink !== '' ? `<li><a class="liveLink" href="${project.liveLink}">Live Demo</a></li>` : ``) %>
-                        <% if(currentUser && project.author.equals(currentUser._id)) { %>
-                        <li><a class="edit" href="/projects/<%= project._id %>/edit">Edit</a></li>
-                        <li><form action="/projects/<%= project._id%>?_method=DELETE" method="POST">
-                            <button>Delete</button>
-                        </form></li>
-                        <% } %>
-                    </ul>
-                </div>
-            </div>
-            
         </div>
         
         <hr>
@@ -64,6 +63,7 @@
             </div>
         <% } %>
         </div>
+    </div>
 </div>
     
     

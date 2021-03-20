@@ -1,0 +1,26 @@
+<% layout('layouts/boilerplate') %> 
+
+<h1>Education</h1>
+<hr>
+    <% for(let degree of degrees){ %>
+        <div class="degreeContent row col-md-10 offset-1 my-4">
+                <div class="d-inline-flex">
+                    <div class="degree col-md-8"><h3 class="title"><a href="/education/<%=degree._id %>"><%= degree.degree %></a></h3></div>
+                    <div class="gradYear col-md-4 text-end"><%= degree.gradYear%></div>
+                </div>
+                <div class="d-inline-flex">
+                    <div class="school col-md-6 offset-1"> <h4><%= degree.school%></h4></div>
+                <% if(degree.program) { %> 
+                    <div class="program col-md-3"><h5><%= degree.program %></h5></div>
+                <% } %>
+                </div>
+            <% if(degree.classes.length > 0 && degree.classes[0] !== ''){ %>
+                <div class="courses d-block d-md-inline-flex flex-wrap col-md-10 offset-1 my-3 justify-content-center">
+                <% for(each of degree.classes){ %> 
+                    <div class="course mx-3"><%= each %></div>
+                <% } %>
+                </div>
+            <% } %>
+        </div>
+    <% } %> 
+

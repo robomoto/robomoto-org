@@ -1,0 +1,42 @@
+<% layout('layouts/boilerplate') %> 
+        <div class="row">
+            <h1 class="text-center">New Degree</h1>
+            <div class="col-6 offset-3">
+                <form action="/education/<%=degree._id%>?_method=PUT"" method="POST" class="needs-validation" novalidate>
+                    <div class="schoolLinks">
+                        <section class="degree mb-3">
+                            <label class="form-label" for="degree">Degree Name</label><br />
+                            <input class="form-control" type="text" name="degree[degree]" id="degree" value="<%= degree.degree %>" required>
+                        </section>
+                        
+                        <section class="program mb-3">
+                            <label class="form-label" for="program">Program</label><br />
+                            <input class="form-control" type="text" name="degree[program]" id="program" value="<%= degree.program %>" required>
+                        </section>
+                
+                        <section class="school mb-3">
+                            <label class="form-label" for="school">School</label><br />
+                            <input class="form-control" type="text" name="degree[school]" id="school" value="<%= degree.school %>">
+                        </section>
+                        
+                        <section class="gradYear mb-3">
+                            <label class="form-label" for="gradYear">Grad Year</label><br />
+                            <input class="form-control" type="number" name="degree[gradYear]" id="gradYear" value="<%= degree.gradYear %>">
+                        </section>
+            
+                    </div>
+                    
+                    <section class="classes mb-3">
+                        <label class="form-label" for="newClasses">Add Classes</label><br />
+                        <input class="form-control" type="text" name="degree[classes]" id="classes" value="<% if(degree.classes.length > 0) { %><%- degree.classes[0].trim() %><% } %><% for(let i = 1; i < degree.classes.length; i++){ %>, <%- degree.classes[i].trim() %><% } %>">
+                    </section>
+                    
+                    <section class="submit mb-3">
+                        <button class="btn btn-success">Submit</button> 
+                    </section>
+                    <a href="/education" class="btnLink">Cancel</a>    
+                </form>
+            </div>
+        </div>
+        
+    

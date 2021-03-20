@@ -3,14 +3,14 @@ const mongoose = require('mongoose');
 const degreeSchema = new mongoose.Schema({
     degree: {
         type: String,
-        enum: ['Associate of Arts and Sciences', 'Bachelor of Arts', 'Bachelor of Science', 'Master of Business Administration']
+        // enum: ['Associate of Arts and Sciences', 'Bachelor of Arts', 'Bachelor of Science', 'Master of Business Administration']
     },
     program: {
         type: String
     },
     school: {
         type: String,
-        enum: ['Wenatchee Valley College', 'Western Washington University', 'Seattle University', 'Oregon State University']
+        // enum: ['Wenatchee Valley College', 'Western Washington University', 'Seattle University', 'Oregon State University']
     },
     classes: {
         type: [String]
