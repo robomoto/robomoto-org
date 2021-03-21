@@ -3,6 +3,7 @@ const Degree = require('../models/degree');
 module.exports.index = async (req, res) => {
     const sort = {gradYear: -1};
     const degrees = await Degree.find({}).sort(sort);
+    console.log(res.locals.currentUser);
     res.render("education/index", {degrees});
 }
 
@@ -19,7 +20,7 @@ module.exports.createDegree = async (req, res) => {
     console.log('newDegree:');
     console.log(newDegree);
     req.flash('success', 'Successfully added a new degree');
-    res.redirect(`/education/${newDegree._id}`);
+    res.redirect('/education');
 }
 
 module.exports.showDegree = async (req, res) => {

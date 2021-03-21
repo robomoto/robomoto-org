@@ -4,14 +4,19 @@
 <hr>
     <% for(let degree of degrees){ %>
         <div class="degreeContent row col-md-10 offset-1 my-4">
-                <div class="d-inline-flex">
-                    <div class="degree col-md-8"><h3 class="title"><a href="/education/<%=degree._id %>"><%= degree.degree %></a></h3></div>
-                    <div class="gradYear col-md-4 text-end"><%= degree.gradYear%></div>
+                <div class="d-block d-sm-inline-flex">
+                    <div class="degree col-md-8"><h3 class="title"><%= degree.degree %></h3></div>
+                    <% if(currentUser && currentUser._id.equals(degree.author._id)){ %>
+                        <div class="gradYear col-md-3 mx-sm-2 text-end"><%= degree.gradYear%></div>
+                        <div class="col-md-1 text-end mx-sm-2"><a href="/education/<%= degree._id %>/edit">Edit</a></div>
+                    <% } else { %>
+                        <div class="gradYear col-md-4 mx-sm-2 text-end"><%= degree.gradYear%></div>
+                    <% } %>
                 </div>
-                <div class="d-inline-flex">
-                    <div class="school col-md-6 offset-1"> <h4><%= degree.school%></h4></div>
+                <div class="d-block d-md-inline-flex">
+                    <div class="school col-md-6 offset-md-1"> <h4><%= degree.school%></h4></div>
                 <% if(degree.program) { %> 
-                    <div class="program col-md-3"><h5><%= degree.program %></h5></div>
+                    <div class="program col-md-6"><h5><%= degree.program %></h5></div>
                 <% } %>
                 </div>
             <% if(degree.classes.length > 0 && degree.classes[0] !== ''){ %>
